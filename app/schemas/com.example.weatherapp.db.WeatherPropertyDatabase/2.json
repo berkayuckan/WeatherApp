@@ -1,0 +1,188 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "764e877b0e5cdcbc8940eef0d7140688",
+    "entities": [
+      {
+        "tableName": "weather_property",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `icons` TEXT NOT NULL, `id2` INTEGER, `isDay` INTEGER, `temperature` REAL, `winddirection` INTEGER, `windspeed` REAL, `id3` INTEGER, `apparentTemperatureMax` TEXT, `apparentTemperatureMin` TEXT, `time` TEXT, `weathercode` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "icons",
+            "columnName": "icons",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentWeather.id2",
+            "columnName": "id2",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "currentWeather.isDay",
+            "columnName": "isDay",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "currentWeather.temperature",
+            "columnName": "temperature",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "currentWeather.winddirection",
+            "columnName": "winddirection",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "currentWeather.windspeed",
+            "columnName": "windspeed",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "daily.id3",
+            "columnName": "id3",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "daily.apparentTemperatureMax",
+            "columnName": "apparentTemperatureMax",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "daily.apparentTemperatureMin",
+            "columnName": "apparentTemperatureMin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "daily.time",
+            "columnName": "time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "daily.weathercode",
+            "columnName": "weathercode",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "current_weather_tablo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id2` INTEGER NOT NULL, `isDay` INTEGER, `temperature` REAL, `winddirection` INTEGER, `windspeed` REAL, PRIMARY KEY(`id2`))",
+        "fields": [
+          {
+            "fieldPath": "id2",
+            "columnName": "id2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDay",
+            "columnName": "isDay",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "temperature",
+            "columnName": "temperature",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "winddirection",
+            "columnName": "winddirection",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "windspeed",
+            "columnName": "windspeed",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id2"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "daily_tablo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id3` INTEGER NOT NULL, `apparentTemperatureMax` TEXT, `apparentTemperatureMin` TEXT, `time` TEXT, `weathercode` TEXT, PRIMARY KEY(`id3`))",
+        "fields": [
+          {
+            "fieldPath": "id3",
+            "columnName": "id3",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "apparentTemperatureMax",
+            "columnName": "apparentTemperatureMax",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "apparentTemperatureMin",
+            "columnName": "apparentTemperatureMin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "weathercode",
+            "columnName": "weathercode",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id3"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '764e877b0e5cdcbc8940eef0d7140688')"
+    ]
+  }
+}
